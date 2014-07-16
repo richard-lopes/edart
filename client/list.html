@@ -1,0 +1,27 @@
+﻿<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="offer.html">
+
+<polymer-element name="myob-list">
+    <template>
+        <div layout vertical center>
+            <template repeat="{{post in posts}}">
+                <myob-offer owner="Andrew Mills" title="television" photo="/images/tv.jpg">
+                    <p>A fantastic LED TV almost free for the quick buyer.</p>
+                </myob-offer>
+            </template>
+        </div>
+    </template>
+
+    <script>
+    Polymer('myob-list', {
+        ready: function() {
+            this.posts = [
+                {what: 'Hello', who: 'World'},
+                {what: 'GoodBye', who: 'DOM APIs'},
+                {what: 'Hello', who: 'Declarative'},
+                {what: 'GoodBye', who: 'Imperative'}
+            ];
+        }
+    });
+    </script>
+</polymer-element>

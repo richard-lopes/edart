@@ -1,0 +1,87 @@
+﻿<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="/bower_components/core-icons/core-icons.html">
+<link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="/bower_components/paper-shadow/paper-shadow.html">
+
+<polymer-element name="myob-offer" attributes="owner title photo">
+    <template>
+        <style>
+            :host {
+                display: block;
+                position: relative;
+                background-color: white;
+                padding: 0;
+                margin: 10px;
+                min-width: 400px;
+                width: 400px;
+                font-weight: 300;
+            }
+
+            .header {
+                font-size: 1.2rem;
+                margin: 10px;
+            }
+
+            .header #owner {
+                font-weight: bold;
+                color: #76AD1C;
+            }
+
+            .header #title {
+                font-weight: bold;
+                color: #EC6915;
+            }
+
+            .body {
+                font-size: 1rem;
+                margin: 10px;
+            }
+
+            .body #photo {
+                padding-right: 10px;
+                width: 25%;
+                height: 25%;
+            }
+
+            .footer {
+                border-top: 2px solid rgba(0,0,0,0.1);
+                background-color: rgba(255,255,255,0.8);
+            }
+
+            .footer paper-icon-button {
+                color: rbga(0,0,0,0.8);
+            }
+        </style>
+        <paper-shadow z="1"></paper-shadow>
+        <div class="header">
+            <span id="owner">{{owner}}</span> has a <span id="title">{{title}}</span>
+        </div>
+        <div class="body" horizontal layout>
+            <img src="{{photo}}" id="photo"/>
+            <content flex></content>
+        </div>
+        <core-toolbar class="footer" horizontal end-justified layout>
+            <paper-icon-button icon="create" id="edit"></paper-icon-button>
+            <paper-icon-button icon="shopping-cart" id="buy"></paper-icon-button>
+        </core-toolbar>
+    </template>
+    <script>
+        Polymer('myob-offer', {
+            owner: "Unknown",
+            title: "nothing",
+            photo: "",
+
+            publish: {
+                favorite: {
+                    value: false,
+                    reflect: true
+                }
+            }//,
+            //favoriteTapped: function(event, detail, sender) {
+            //    this.favorite = !this.favorite;
+            //    this.fire('favorite-tap');
+            //}
+        });
+    </script>
+</polymer-element>
