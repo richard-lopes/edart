@@ -63,6 +63,10 @@ namespace EdartEmailer
                     Console.WriteLine(myReader["email"].ToString());
                     Console.WriteLine(myReader["email_frequency"].ToString());
 
+//
+// if email_date + frequency <= now send out an email
+//
+
                     if (myReader["email_frequency"].ToString() == "1" || myReader["email_frequency"].ToString() == "2" || myReader["email_frequency"].ToString() == "3" || myReader["email_frequency"].ToString() == "4")
                     {
                         // Command line argument must the the SMTP host.
@@ -110,14 +114,15 @@ namespace EdartEmailer
                         // For this example, the userToken is a string constant. 
                         string userState = "test message1";
                         client.SendAsync(message, userState);
-                        Console.WriteLine("Sending message... press c to cancel mail. Press any other key to exit.");
-                        string answer = Console.ReadLine();
+//                        Console.WriteLine("Sending message... press c to cancel mail. Press any other key to exit.");
+                        Console.WriteLine("Sending message...");
+//                        string answer = Console.ReadLine();
                         // If the user canceled the send, and mail hasn't been sent yet, 
                         // then cancel the pending operation.
-                        if (answer.StartsWith("c") && mailSent == false)
-                        {
-                            client.SendAsyncCancel();
-                        }
+//                        if (answer.StartsWith("c") && mailSent == false)
+//                        {
+//                            client.SendAsyncCancel();
+//                        }
                         // Clean up.
                         message.Dispose();
                         mailSent = false;
