@@ -14,16 +14,17 @@ namespace adart.repository
     
     public partial class Offer
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public byte[] ModifiedDate { get; set; }
+        public System.DateTime ModifiedDate { get; set; }
         public Nullable<decimal> StartPrice { get; set; }
         public Nullable<decimal> ReservePrice { get; set; }
         public Nullable<decimal> EndDate { get; set; }
         public short Status { get; set; }
-        public int UserID { get; set; }
-        public short CategoryID { get; set; }
+        public string UserID { get; set; }
+        public string CategoryID { get; set; }
+        public System.DateTime CreatedDateTime { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual User User { get; set; }
