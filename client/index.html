@@ -19,6 +19,9 @@
                 background-color: #F0F0F0;
                 color: rgba(0,0,0,0.8);
                 font-family: 'RobotoDraft', sans-serif;
+                background-image: url('images/honestal.png');
+                background-repeat:no-repeat;
+                background-position: bottom right;
             }
             core-header-panel {
                 height: 100%;
@@ -45,7 +48,11 @@
                 max-width: 15em;
             }
             #offers {
-                padding: 10px;
+                padding: 20px 10px;
+            }
+            #logo{
+                margin-top: 20px;
+                z-index: 10;
             }
         </style>
     </head>
@@ -54,7 +61,7 @@
         <core-header-panel>
             <core-toolbar class="toolbar">
                 <img src="/images/myob_logo_small.png" width="69" height="23"/>
-                <div id="title" flex>EDART</div>
+                <div flex center-justified horizontal layout><img src="/images/logo.png" id="logo"/></div>
                 <paper-icon-button icon="settings" id="settings"></paper-icon-button>
             </core-toolbar>
             <!-- <core-toolbar class="toolbar">
@@ -64,7 +71,7 @@
                 <core-input placeholder="Password" id="password" type="password"></core-input>
                 <paper-fab icon="arrow-forward" class="mini" id="login"></paper-fab>
             </core-toolbar> -->
-            <myob-list id="offers" center vertical layout></myob-list>
+            <myob-list id="offers"></myob-list>
         </core-header-panel>
         <script>
         </script>
