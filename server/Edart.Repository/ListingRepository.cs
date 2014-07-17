@@ -75,22 +75,26 @@ namespace adart.repository
             ListingToOffer = 0,
             OfferToListing = 2
         }
-        private User GetOrCreateUser(string userEmail)
+        private User GetOrCreateUser(string userEmail,string userName,string location,string photoUrl)
         {
             var userObject = model.Users.Where(m => m.Email == userEmail).ToList();
             if (userObject.Count>0)
                 return userObject.First();
 
-            return CreateUser(userEmail);
+
+            var userObjectToAdd = new User();
+            userObjectToAdd.ID = Guid.NewGuid().ToString();
+            userObjectToAdd.Location = location;
+            userObjectToAdd.Name = userName;
+            userObjectToAdd.PhotoUrl = photoUrl;
+            userObjectToAdd.Email = userEmail;
+            return CreateUser(userObjectToAdd);
         }
-        private User CreateUser(string userName)
+        private User CreateUser(User userObject)
         {
-            var userObject = new User();
+            
             try
             {
-                
-                userObject.Email = userName;
-                userObject.ID = Guid.NewGuid().ToString();
                 model.Users.Add(userObject);
                 model.SaveChanges();
                 
@@ -132,16 +136,9 @@ namespace adart.repository
                     //domainModel. viewModel.DateCreated;
                     domainModel.ID = viewModel.Id;
                     domainModel.Title = viewModel.Title;
-                    var userObject = GetOrCreateUser(viewModel.UserName);
-                    if (userObject != null)
-                    {
+                    var userObject = GetOrCreateUser(viewModel.UserEmail,viewModel.UserName,viewModel.Location,"");
                         domainModel.UserID = userObject.ID;
-                    }
-                    else
-                    {
-                        var userModel = CreateUser(viewModel.UserName);
-                        domainModel.UserID = userModel.ID;
-                    }
+                   
                     domainModel.Status = Convert.ToInt16(viewModel.Status);
                     var categoryObject = GetOrCreateCategory(viewModel.CategoryName);
                     if (categoryObject != null)
@@ -150,7 +147,8 @@ namespace adart.repository
                     }
                     domainModel.CreatedDateTime = viewModel.DateCreated;
                     domainModel.ModifiedDate = viewModel.DateModified;
-
+                    domainModel.Photo = viewModel.Photo;
+                    domainModel.Description = viewModel.Description;
                 }
             }
             else
@@ -161,6 +159,11 @@ namespace adart.repository
                 viewModel.Type = ListingType.Offered;
                 viewModel.DateModified = domainModel.ModifiedDate;
                 viewModel.DateCreated = domainModel.CreatedDateTime;
+                viewModel.Description = domainModel.Description;
+                viewModel.UserEmail = domainModel.User.Email;
+                viewModel.UserName = domainModel.User.Name;
+                viewModel.Location = domainModel.User.Location;
+                viewModel.Photo = domainModel.Photo;
             }
         }
         #endregion

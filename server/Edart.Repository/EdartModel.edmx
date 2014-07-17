@@ -40,6 +40,7 @@
           <Property Name="UserID" Type="varchar" Nullable="false" MaxLength="40" />
           <Property Name="CategoryID" Type="varchar" Nullable="false" MaxLength="40" />
           <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+          <Property Name="Photo" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -118,6 +119,7 @@
           <Property Name="UserID" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
           <Property Name="CategoryID" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
           <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Photo" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="Category" Relationship="EdartModel.FK_Offer_Category" FromRole="Offer" ToRole="Category" />
           <NavigationProperty Name="User" Relationship="EdartModel.FK_Offer_User" FromRole="Offer" ToRole="User" />
         </EntityType>
@@ -186,6 +188,7 @@
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="Photo" ColumnName="Photo"/>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
