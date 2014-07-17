@@ -22,7 +22,7 @@ namespace Edart.api
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-           // GlobalConfiguration.Configuration.Formatters.XmlFormatter.UseXmlSerializer = true;
+            GlobalConfiguration.Configuration.Formatters.XmlFormatter.UseXmlSerializer = true;
             
         }
     }
