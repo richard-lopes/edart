@@ -25,6 +25,7 @@ namespace adart.repository
         public string UserID { get; set; }
         public string CategoryID { get; set; }
         public System.DateTime CreatedDateTime { get; set; }
+        public string Photo { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual User User { get; set; }

@@ -18,13 +18,7 @@
     <script>
     Polymer('myob-list', {
         ready: function() {
-            this.offers = [
-                {owner: 'Andrew Mills', header: 'Television', photo:'/images/tv.jpg', description:'A fantastic LED TV almost free for the quick buyer.', location: 'Auckland'},
-                {owner: 'Tony Kelly', header: 'Awesome logo', photo:'', description:'Lorem Ipsum and tutti quanti a ton of text just to test how big it gets and this is it and I probably need a bit more to work on an expand function. Adding even more test so it should go over the limit. Starting to think this is big enough to write a book in there. And one more for the road.', location: 'Auckland'},
-                {owner: 'Renata McKay', header: 'Nice .NET backend', photo:'/images/tv.jpg', description:'What else to say ?', location: 'Melbourne'},
-                {owner: 'Sundar Ravi', header: 'Login stuff and oAuth mastery', photo:'', description:'Working hard with only 2 days on the job', location: 'Sydney'},
-                {owner: 'Richard Lopes', header: 'Polymer tinkering', photo:'', description:'Experimenting with some stuff', location: 'Auckland'}
-            ];
+            this.offers = $.getOffers();
         }
     });
     </script>
