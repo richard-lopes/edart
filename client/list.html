@@ -5,6 +5,7 @@
     <template>
         <section layout vertical>
             <div id="container" flex horizontal wrap left-justified layout>
+                <myob-offer edit></myob-offer>
                 <template repeat="{{offer in offers}}">
                     <myob-offer owner="{{offer.owner}}" header="{{offer.header}}" photo="{{offer.photo}}" location="{{offer.location}}">
                         <p>{{offer.description}}</p>

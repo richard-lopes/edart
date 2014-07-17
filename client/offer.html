@@ -3,6 +3,7 @@
 <link rel="import" href="/bower_components/core-icons/core-icons.html">
 <link rel="import" href="/bower_components/core-icons/iconsets/maps-icons.html">
 <link rel="import" href="/bower_components/core-icon/core-icon.html">
+<link rel="import" href="/bower_components/paper-input/paper-input.html">
 <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="/bower_components/paper-shadow/paper-shadow.html">
 
@@ -55,7 +56,7 @@
 
             .body #photo {
                 padding-right: 10px;
-                width: 25%;
+                width: 100px;
             }
 
             .footer {
@@ -72,21 +73,39 @@
             }
         </style>
         <paper-shadow z="1"></paper-shadow>
-        <div class="header">
-            <span id="owner">{{owner}}</span> has a <span id="title">{{header}}</span>
-            <paper-icon-button icon="chevron-right" id="edit"></paper-icon-button>
-        </div>
-        <div class="body" horizontal layout>
-            <template if="{{photo}}">
-                <img src="{{photo}}" id="photo"/>
-            </template>
-            <content flex></content>
-        </div>
-        <core-toolbar class="footer">
-            <core-icon icon="maps:place"></core-icon><span id="location">{{location}}</span>
-            <div flex></div>
-            <paper-icon-button icon="mail" id="mail"></paper-icon-button>
-        </core-toolbar>
+        <template if="{{edit}}">
+            <div class="header">Create new...</div>
+            <div class="body">
+                <paper-input label="Name"></paper-input>
+                <!-- <paper-input label="has a"></paper-input> -->
+                <paper-input label="Offer"></paper-input>
+                <!-- <paper-input label="Photo URL"></paper-input> -->
+                <paper-input label="Description"></paper-input>
+            </div>
+            <core-toolbar class="footer">
+                <core-icon icon="maps:place"></core-icon>
+                <paper-input label="Location"></paper-input>
+                <div flex></div>
+                <paper-icon-button icon="check" id="create"></paper-icon-button>
+            </core-toolbar>
+        </template>
+        <template if="{{!edit}}">
+            <div class="header">
+                <span id="owner">{{owner}}</span> has a <span id="title">{{header}}</span>
+                <paper-icon-button icon="chevron-right" id="edit"></paper-icon-button>
+            </div>
+            <div class="body" horizontal layout>
+                <template if="{{photo}}">
+                    <img src="{{photo}}" id="photo"/>
+                </template>
+                <content flex></content>
+            </div>
+            <core-toolbar class="footer">
+                <core-icon icon="maps:place"></core-icon><span id="location">{{location}}</span>
+                <div flex></div>
+                <paper-icon-button icon="mail" id="mail"></paper-icon-button>
+            </core-toolbar>
+        </template>
     </template>
     <script>
         Polymer('myob-offer', {
@@ -97,7 +116,7 @@
             photo: "",
 
             publish: {
-                favorite: {
+                edit: {
                     value: false,
                     reflect: true
                 }
