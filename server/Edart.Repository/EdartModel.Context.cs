@@ -7,24 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-
-public partial class EdartEntities : DbContext
+namespace adart.repository
 {
-    public EdartEntities()
-        : base("name=EdartEntities")
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    
+    public partial class EdartEntities : DbContext
     {
+        public EdartEntities()
+            : base("name=EdartEntities")
+        {
+        }
+    
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
+    
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Offer> Offers { get; set; }
+        public DbSet<User> Users { get; set; }
     }
-
-    protected override void OnModelCreating(DbModelBuilder modelBuilder)
-    {
-        throw new UnintentionalCodeFirstException();
-    }
-
-    public DbSet<Category> Categories { get; set; }
-    public DbSet<Offer> Offers { get; set; }
-    public DbSet<sysdiagram> sysdiagrams { get; set; }
-    public DbSet<User> Users { get; set; }
 }
