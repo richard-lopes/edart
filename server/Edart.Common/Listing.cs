@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Edart.Common
 {
+    [Serializable]
+    
     public class Listing
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public ListingType Type {get; set; }
@@ -16,6 +18,7 @@ namespace Edart.Common
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
         public string UserName { get; set; }
+        public string CategoryName { get; set; }
     }
 
 
@@ -32,5 +35,9 @@ namespace Edart.Common
         Cancelled = 3
 
     }
-    
+
+    public class Login
+    {
+        public string Token { get; set; }
+    }
 }

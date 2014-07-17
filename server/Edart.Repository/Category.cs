@@ -19,7 +19,7 @@ namespace adart.repository
             this.Offers = new HashSet<Offer>();
         }
     
-        public short ID { get; set; }
+        public string ID { get; set; }
         public string Name { get; set; }
     
         public virtual ICollection<Offer> Offers { get; set; }

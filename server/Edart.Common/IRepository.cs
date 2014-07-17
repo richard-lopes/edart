@@ -5,7 +5,7 @@ namespace Edart.Common
 {
     public interface IListingRepository
     {
-        Listing GetListing(int listingId);
+        Listing GetListing(string listingId);
         IEnumerable<Listing> GetListings();
         Listing AddListing(Listing listing);
         Boolean UpdateListing(Listing listing);

@@ -19,12 +19,12 @@ namespace adart.repository
             this.Offers = new HashSet<Offer>();
         }
     
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public Nullable<int> Phone { get; set; }
         public string Location { get; set; }
-        public short EmailFrequency { get; set; }
+        public Nullable<short> EmailFrequency { get; set; }
         public string PhotoUrl { get; set; }
     
         public virtual ICollection<Offer> Offers { get; set; }

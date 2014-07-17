@@ -27,7 +27,6 @@ namespace adart.repository
     
         public DbSet<Category> Categories { get; set; }
         public DbSet<Offer> Offers { get; set; }
-        public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<User> Users { get; set; }
     }
 }
