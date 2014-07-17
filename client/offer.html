@@ -15,8 +15,8 @@
                 background-color: white;
                 padding: 0;
                 margin: 10px;
+                width: 30%;
                 min-width: 400px;
-                width: 400px;
                 font-weight: 300;
             }
 
@@ -48,6 +48,7 @@
             .body {
                 font-size: 1rem;
                 margin: 10px;
+                height: 100px;
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
@@ -55,7 +56,6 @@
             .body #photo {
                 padding-right: 10px;
                 width: 25%;
-                height: 25%;
             }
 
             .footer {
@@ -76,8 +76,10 @@
             <span id="owner">{{owner}}</span> has a <span id="title">{{header}}</span>
             <paper-icon-button icon="chevron-right" id="edit"></paper-icon-button>
         </div>
-        <div class="body" flex horizontal layout>
-            <img src="{{photo}}" id="photo"/>
+        <div class="body" horizontal layout>
+            <template if="{{photo}}">
+                <img src="{{photo}}" id="photo"/>
+            </template>
             <content flex></content>
         </div>
         <core-toolbar class="footer">
