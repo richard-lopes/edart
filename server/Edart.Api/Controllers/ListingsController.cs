@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Script.Serialization;
 using Edart.Common;
 using adart.repository;
 
@@ -46,26 +47,25 @@ namespace Edart.Api.Controllers
             }
             return Request.CreateResponse(HttpStatusCode.Unauthorized);
         }
-
+        //[HttpPost]
+        //public HttpResponseMessage Test1([FromBody] Test test1, string token)
+        //{
+          //  return null;
+        //}
 
         [HttpPost]
-        public HttpResponseMessage CreateListing([FromBody] Listing listing,string token)
+        public HttpResponseMessage CreateListing([FromBody] Listing listing1,string token)
         {
-            Listing li=new Listing();
-            li.Description = "ss";
-            li.Title = "fsfss";
-            
-
-            if (IsTokenValid("ff") && listing!=null)
+            if (IsTokenValid(token) && listing1 != null)
             {
-                listing.DateCreated = DateTime.Now;
-                listing.DateModified = DateTime.Now;
-                listing.Status = ListingStatus.Active;
-                listing.UserName = token;
-                listing = _repository.AddListing(listing);
+                listing1.DateCreated = DateTime.Now;
+                listing1.DateModified = DateTime.Now;
+                listing1.Status = ListingStatus.Active;
+                listing1.UserEmail = token;
+                listing1 = _repository.AddListing(listing1);
 
-                var response = Request.CreateResponse(HttpStatusCode.Created, listing);
-                var link = Url.Link("DefaultApi", new {id = listing.Id});
+                var response = Request.CreateResponse(HttpStatusCode.Created, listing1);
+                var link = Url.Link("DefaultApi", new {id = listing1.Id});
                 response.Headers.Location = new Uri(link);
 
                 return response;
