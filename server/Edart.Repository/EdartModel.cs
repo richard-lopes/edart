@@ -7,3 +7,62 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+
+public partial class Category
+{
+    public Category()
+    {
+        this.Offers = new HashSet<Offer>();
+    }
+
+    public short ID { get; set; }
+    public string Name { get; set; }
+
+    public virtual ICollection<Offer> Offers { get; set; }
+}
+
+public partial class Offer
+{
+    public int ID { get; set; }
+    public string Title { get; set; }
+    public string Description { get; set; }
+    public byte[] ModifiedDate { get; set; }
+    public Nullable<decimal> StartPrice { get; set; }
+    public Nullable<decimal> ReservePrice { get; set; }
+    public Nullable<decimal> EndDate { get; set; }
+    public short Status { get; set; }
+    public int UserID { get; set; }
+    public short CategoryID { get; set; }
+
+    public virtual Category Category { get; set; }
+    public virtual User User { get; set; }
+}
+
+public partial class sysdiagram
+{
+    public string name { get; set; }
+    public int principal_id { get; set; }
+    public int diagram_id { get; set; }
+    public Nullable<int> version { get; set; }
+    public byte[] definition { get; set; }
+}
+
+public partial class User
+{
+    public User()
+    {
+        this.Offers = new HashSet<Offer>();
+    }
+
+    public int ID { get; set; }
+    public string Name { get; set; }
+    public string Email { get; set; }
+    public Nullable<int> Phone { get; set; }
+    public string Location { get; set; }
+    public short EmailFrequency { get; set; }
+    public string PhotoUrl { get; set; }
+
+    public virtual ICollection<Offer> Offers { get; set; }
+}

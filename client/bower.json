@@ -1,0 +1,23 @@
+{
+  "name": "Edart",
+  "version": "0.0.1",
+  "homepage": "https://github.com/richard-lopes/edart",
+  "authors": [
+    "Edart Team Auckland"
+  ],
+  "description": "MYOB auction place",
+  "main": "index.html",
+  "license": "(c) MYOB",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.4",
+    "core-elements": "Polymer/core-elements#~0.3.4",
+    "paper-elements": "Polymer/paper-elements#~0.3.4"
+  }
+}

@@ -1,0 +1,27 @@
+﻿<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="offer.html">
+
+<polymer-element name="myob-list">
+    <template>
+        <div layout vertical center>
+            <template repeat="{{offer in offers}}">
+                <myob-offer owner="{{offer.owner}}" header="{{offer.header}}" photo="{{offer.photo}}" location="{{offer.location}}">
+                    <p>{{offer.description}}</p>
+                </myob-offer>
+            </template>
+        </div>
+    </template>
+
+    <script>
+    Polymer('myob-list', {
+        ready: function() {
+            this.offers = [
+                {owner: 'Andrew Mills', header: 'Television', photo:'/images/tv.jpg', description:'A fantastic LED TV almost free for the quick buyer.', location: 'Auckland'},
+                {owner: 'Tony Kelly', header: 'Awesome logo', photo:'', description:'Lorem Ipsum and tutti quanti a ton of text just to test how big it gets and this is it and I probably need a bit more to work on an expand function', location: 'Auckland'},
+                {owner: 'Renata McKay', header: 'Nice .NET backend', photo:'/images/tv.jpg', description:'What else to say ?', location: 'Melbourne'},
+                {owner: 'Sundar Ravi', header: 'Login stuff and oAuth mastery', photo:'', description:'Working hard with only 2 days on the job', location: 'Sydney'}
+            ];
+        }
+    });
+    </script>
+</polymer-element>
